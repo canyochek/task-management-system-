@@ -1,0 +1,20 @@
+.user-card__menu{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 32px
+}
+.user-card__menu-item {
+    border-radius: 50px;
+    display: flex;
+}
+// .user-card__menu-btn {
+//     font-size: 13px;
+//         &:hover {
+//         cursor: pointer;
+//         background-color: #D9D9D9;
+//     }
+// }
+.user-card__menu-icon {
+    margin-right: 8px;
+}

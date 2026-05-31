@@ -1,0 +1,19 @@
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #EBEBEB;
+    border-radius: 50px;
+    gap: 16px;
+    padding: 9px 12px;
+    transition: .1s;
+    margin: 0 24px 8px 20px; 
+    &__input {
+        width: 100%;
+        &::placeholder {
+            font-size: 14px; 
+        }
+    }
+    &:hover {
+        background-color: #dadada;
+    }
+}

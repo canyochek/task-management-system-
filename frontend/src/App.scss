@@ -1,0 +1,62 @@
+.app-container {
+    height: 100vh;
+    display: flex;
+    padding: 27px 29px 41px 31px;
+    box-sizing: border-box;
+    gap: 29px;
+}
+
+.user-card {
+    width: 346px;
+    min-width: 346px;
+    transition: width 0.1s ease, min-width 0.1s ease, padding 0.1s ease;
+}
+
+.app-container.open {
+    .user-card {
+        width: 346px;
+        min-width: 346px;
+    }
+}
+
+.app-container.closed {
+    .user-card {
+        width: 75px; 
+        min-width: 75px; 
+        margin-left: 0;
+        padding: 30px 0;
+        & span, &__title, &__name { 
+        display: inline-block;
+        opacity: 0;
+        width: 0;
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap; 
+        transition: opacity 0.2s ease, width 0.3s ease;
+        }
+        .search-box {
+            display: none;
+        }
+        &__menu, &__list, &__footer-item {
+            gap: 15px;
+            align-items: center;
+        }
+        &__list-item, &__menu-item, &__footer-btn{
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+        }
+        &__header, &__footer-item {
+            display: flex;
+            justify-content: center;
+            margin-left: 0;
+        }
+        &__menu-icon, &__list-icon, &__footer-icon {
+           margin-right: 0; 
+        }
+        &__footer-menu {
+            gap: 12px
+        }
+    }
+}

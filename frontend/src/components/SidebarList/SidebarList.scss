@@ -1,0 +1,14 @@
+.user-card__list{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.user-card__list-icon {
+    margin-right: 8px;
+}
+
+.user-card__list-item {
+    border-radius: 50px;
+    display: flex;
+}

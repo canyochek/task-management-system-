@@ -1,0 +1,37 @@
+.welcome-screen {
+    background-color: #F4F4F4;
+    border-radius: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    flex-grow: 1;
+}
+
+.welcome-screen__title {
+    font-size: 36px;
+}
+
+.welcome-screen__info {
+    max-width: 580px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.welcome-screen__btn {
+    background-color: #76DE37;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    padding: 4px 61px;
+    font-size: 24px;
+    transition: .3s;
+    &:hover {
+        background-color: #6dc734;
+    }
+}
+
+
+
