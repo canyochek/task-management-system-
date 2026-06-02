@@ -5,13 +5,13 @@ import SidebarMenu from "../SidebarMenu/SidebarMenu";
 import SidebarList from "../SidebarList/SidebarList";
 import SidebarFooter from "../SidebarFooter/SidebarFooter";
 
-const Sidebar = ({onToggle}) => {
+const Sidebar = ({onToggle, onToggleScreen}) => {
   return (
     <section className="user-card">
       <SidebarHeader onToggle={onToggle}/>
       <SearchBox />
       <div className="user-card__content">
-        <SidebarMenu />
+        <SidebarMenu onToggleScreen={(screen) => onToggleScreen(screen)}/>
         <SidebarList />
       </div>
       <SidebarFooter />
