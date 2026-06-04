@@ -1,0 +1,14 @@
+@import "../../mixins";
+
+.today-page {
+    @include card; 
+    width: 100%;
+}
+
+.today-page__content {
+    @include base-card; 
+    flex-grow: 1; 
+}
+.today-page__title {
+    @include page-title;
+}

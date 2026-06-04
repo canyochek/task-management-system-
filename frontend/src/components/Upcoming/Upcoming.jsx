@@ -1,6 +1,5 @@
 import './Upcoming.scss'
 import UpcomingList from './UpcomingList'
-//import UpcomingItem from './UpcomingItem'
 
 const upcomingSection = [
     {id: 1, title: "Today"},

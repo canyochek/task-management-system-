@@ -1,12 +1,19 @@
-const UpcomingItem = () => {
+import { useState } from "react";
+const UpcomingItem = ({text}) => {
+  const [check, setCheck] = useState(true)
+
+  const handleCheckBox = () => {
+    setCheck(!check)
+  }
   return (
     <>
-      <button>Add new task</button>
-      <ul className="upcoming__tasks">
-        <li className="upcoming"><input type="checkbox"></input>asdasd</li>
-        <li className="upcoming"><input type="checkbox"></input>asdasdasd</li>
-        <li className="upcoming"><input type="checkbox"></input>asdasdasdasd</li>
-      </ul>
+      <li className="upcoming__item">
+        <label className="upcoming__label">
+          <input className="upcoming__checkbox" type="checkbox" onChange={handleCheckBox}/>
+          <span className="upcoming__custom-checkbox"></span>
+          <span className={`upcoming__text ${check ? "" : "line"}`}>{text}</span>
+        </label>
+      </li>
     </>
   );
 };
