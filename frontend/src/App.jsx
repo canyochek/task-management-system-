@@ -21,7 +21,7 @@ const App = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/tasks', {
+      const response = await fetch('https://task-management-system-backend-wlev.onrender.com/api/tasks', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

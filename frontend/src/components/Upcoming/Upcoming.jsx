@@ -75,7 +75,7 @@ const Upcoming = ({ tasks = [], setTasks, onDeleteTask, token }) => {
         if (editingTask) {
             const taskId = editingTask._id || editingTask.id;
             try {
-                const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+                const response = await fetch(`https://task-management-system-backend-wlev.onrender.com/api/tasks/${taskId}`, {
                     method: 'PUT',
                     headers: { 
                         'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const Upcoming = ({ tasks = [], setTasks, onDeleteTask, token }) => {
             }
         } else {
             try {
-                const response = await fetch('http://localhost:5000/api/tasks', {
+                const response = await fetch('https://task-management-system-backend-wlev.onrender.com/api/tasks', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',

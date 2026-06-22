@@ -21,7 +21,7 @@ const SignIn = ({ onLoginSuccess }) => {
         const endpoint = isSignUp ? 'register' : 'login';
 
         try {
-            const response = await fetch(`http://localhost:5000/api/auth/${endpoint}`, {
+            const response = await fetch(`https://task-management-system-backend-wlev.onrender.com/api/auth/${endpoint}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
