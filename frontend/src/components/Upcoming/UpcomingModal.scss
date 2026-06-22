@@ -1,0 +1,19 @@
+.upcoming__modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.upcoming__select {
+    margin-left: 10px;
+}
+.upcoming__modal-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    transition: .2s;
+    &:hover {
+        background-color: #DFDFDF;
+        border-radius: 30px;
+    }
+}

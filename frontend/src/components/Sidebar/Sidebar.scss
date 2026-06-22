@@ -1,3 +1,4 @@
+@import '../../mixins';
 .user-card {
     display: flex;
     flex-direction: column;
@@ -7,26 +8,10 @@
     background-color: #F4F4F4;
     border-radius: 50px;
     padding: 32px 21px;
-    gap: 24px;
+    gap: 40px;
     transition: transform 3s ease;
     &__list-btn, &__menu-item button {
-    display: flex;
-    align-items: center;
-    width: 100%;            
-    padding: 5px 8px;      
-    border-radius: 30px;      
-    background: transparent;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-        background-color: #e5e5e5; 
-    }
-
-    img {
-        margin-right: 8px;  
-        display: block;      
-    }
+    @include btn-sidebar;
 }
 }
 

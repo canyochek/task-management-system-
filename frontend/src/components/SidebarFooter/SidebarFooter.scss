@@ -1,21 +1,54 @@
-.user-card__footer-menu{
+.user-card__footer-menu {
     display: flex;
     flex-direction: column;
     gap: 13px;
+    .app-container.closed & {
+        @media (max-width: 992px) {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+    }
 }
+
 .user-card__footer-item {
     margin-left: 16px;
+    .app-container.closed & {
+        @media (max-width: 992px) {
+            display: none !important;
+        }
+    }
 }
+
 .user-card__footer-btn {
     display: flex;
     align-items: center;
     font-size: 20px;
     padding: 2px;
     border-radius: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
     &:hover {
         background-color: #e5e5e5; 
     }
+
     img {
         margin-right: 18px;
+    }
+
+    .app-container.closed & {
+        @media (max-width: 992px) {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            
+            span, img {
+                display: none !important;
+            }
+        }
     }
 }

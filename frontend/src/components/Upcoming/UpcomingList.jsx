@@ -1,37 +1,41 @@
 import UpcomingItem from "./UpcomingItem";
-import addIconTask from "../../assets/icons/plus-circleTask.svg";
-import { useState } from "react";
-const UpcomingList = ({title, className}) => {
-    const [tasks, setTasks] = useState([]);
-    const [inputValue, setInputValue] = useState('');
-    const handleAddTask = (e) => {
-        e.preventDefault()
-        if (!inputValue.trim()) return;
+import { format, parseISO } from 'date-fns';
+import { uk } from 'date-fns/locale';
 
-        const newTask = {
-            key: Date.now(),
-            text: inputValue
-        }
-        setTasks([...tasks, newTask]);
-        setInputValue('');
-    }
-    
+const UpcomingList = ({ title, className, tasks, onDeleteTask, onEditTask }) => {
     return (
-        <>
-            <div className={className}>
-                <h3 className="upcoming__title">{title}</h3>
-                <form onSubmit={handleAddTask} className="upcoming__form">
-                    <button type="submit"><img src={addIconTask} alt="iconAdd" /></button>
-                    <input type="text" placeholder="Add new task" value={inputValue} onChange={(e) => setInputValue(e.target.value)} className="upcoming__input"/>
-                </form>
-                <ul className="upcoming__items-list">
-                    {tasks.map(task => (
-                        <UpcomingItem key={task.id} text={task.text} />
-                    ))}
-                </ul>
-            </div>
-        </>
-    )
-}
+        <div className={className}>
+            <h3 className="upcoming__title">{title}</h3>
+            
+            <ul className="upcoming__items-list">
+                {tasks && tasks.map((task, index) => {
+                    const taskText = task.text || "";
+                    const taskTime = task.time || "";
 
-export default UpcomingList
+                    const taskDate = task.dateISO 
+                        ? format(parseISO(task.dateISO), 'dd MMM', { locale: uk }) 
+                        : (task.dateDisplay || "");
+
+                    const displayInfo = title === "Сьогодні" || title === "Завтра" 
+                        ? `${taskText} (${taskTime})`
+                        : `${taskText} (${taskTime}, ${taskDate})`;
+                        
+                    const currentId = task._id || task.id || index;
+
+                    return (
+                        <UpcomingItem 
+                            key={currentId} 
+                            id={currentId} 
+                            text={displayInfo} 
+                            taskFull={task} 
+                            onDelete={onDeleteTask} 
+                            onEdit={onEditTask} 
+                        />
+                    );
+                })}
+            </ul>
+        </div>
+    );
+};
+
+export default UpcomingList;
