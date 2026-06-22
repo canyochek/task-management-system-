@@ -67,7 +67,7 @@ const App = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+      const response = await fetch(`https://task-management-system-backend-wlev.onrender.com/api/tasks/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
