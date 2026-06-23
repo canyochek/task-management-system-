@@ -37,7 +37,7 @@ const MonthWorkspace = ({ tasks, sidebarLists = [], currentYear, currentMonth, o
         );
     };
 
-return (
+    return (
         <div className="month">
             <div className="month__weekdays">
                 {weekdays.map(day => <span key={day} className="month__weekday">{day}</span>)}
@@ -46,20 +46,38 @@ return (
             <div className="month__scrollable-grid-container" ref={containerRef}>
                 {renderMonthsRange.map(({ year, month, isCurrent }) => {
                     const daysInMonth = new Date(year, month + 1, 0).getDate();
-                    const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+                    const firstDayIdx = new Date(year, month, 1).getDay();
+                    const startOffset = firstDayIdx === 0 ? 6 : firstDayIdx - 1;
+                    const emptyCells = Array.from({ length: startOffset }, (_, i) => ({
+                        id: `empty-${year}-${month}-${i}`,
+                        isEmpty: true
+                    }));
+
+                    const actualDays = Array.from({ length: daysInMonth }, (_, i) => ({
+                        id: `day-${i + 1}`,
+                        dayNumber: i + 1,
+                        isEmpty: false
+                    }));
+
+                    const gridCells = [...emptyCells, ...actualDays];
 
                     return (
                         <div key={`${year}-${month}`} className={`month__scroll-section ${isCurrent ? 'month__scroll-section--current' : ''}`}>
                             <h4 className="month__inner-title">{monthNames[month]} {year}</h4>
 
                             <div className="month__grid">
-                                {days.map(day => {
+                                {gridCells.map((cell) => {
+                                    if (cell.isEmpty) {
+                                        return <div key={cell.id} className="month__cell month__cell--empty"></div>;
+                                    }
+
+                                    const day = cell.dayNumber;
                                     const tasksForThisDay = tasks
                                         ? tasks.filter(task => isTaskOnDay(task.dateISO, day, month, year))
                                         : [];
 
                                     return (
-                                        <div key={day} className="month__cell">
+                                        <div key={`${year}-${month}-${day}`} className="month__cell">
                                             <span className="month__day-number">{day}</span>
                                             <div className="month__cell-tasks">
                                                 {tasksForThisDay.map(task => {
