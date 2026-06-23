@@ -14,9 +14,9 @@ const SidebarList = () => {
   const [lists, setLists] = useState(() => {
     const savedLists = localStorage.getItem('sidebar_lists');
     return savedLists ? JSON.parse(savedLists) : [
-      { id: '1', text: "Work", color: '#ff0000' },
-      { id: '2', text: "Personal", color: '#52c41a' },
-      { id: '3', text: "Study", color: '#1890ff' }
+      { id: '1', text: "Робота", color: '#ff0000' },
+      { id: '2', text: "Особливе", color: '#52c41a' },
+      { id: '3', text: "Навчання", color: '#1890ff' }
     ];
   });
 
