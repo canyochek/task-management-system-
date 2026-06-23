@@ -49,7 +49,7 @@ const SignIn = ({ onLoginSuccess }) => {
     return (
         <div className="auth-container">
             <form onSubmit={handleSubmit} className="auth-form">
-                <h1 className="auth-form__title">{isSignUp ? 'Sign up' : 'Sign in'}</h1>
+                <h1 className="auth-form__title">{isSignUp ? 'Зареєструватися' : 'Увійти'}</h1>
                 
                 {error && <div style={{ color: '#ff4d4d', marginBottom: '15px', fontSize: '14px', fontWeight: '600' }}>{error}</div>}
                 {successMessage && <div style={{ color: '#2ecc71', marginBottom: '15px', fontSize: '14px', fontWeight: '600' }}>{successMessage}</div>}
