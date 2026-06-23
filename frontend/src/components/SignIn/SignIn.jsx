@@ -86,7 +86,7 @@ const SignIn = ({ onLoginSuccess }) => {
                     </button>
                 </div>
                 <button type="submit" className="auth-form__submit">
-                    {isSignUp ? 'Sign Up' : 'Sign In'}
+                    {isSignUp ? 'Зареєструватися' : 'Увійти'}
                 </button>
                 <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '14px', color: '#666' }}>
                     {isSignUp ? 'Вже маєте акаунт? ' : 'Ще немає акаунту? '}
